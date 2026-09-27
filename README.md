@@ -195,6 +195,18 @@ aula7-login/
 ├── verifica_login.php        # Exige login e descobre o tipo do usuário
 ├── menu.php                  # Barra de navegação
 │
+│   # --- API RESTful ---
+├── api/
+│   ├── helper.php            # Formatação JSON e manipulação de requisições
+│   ├── auth.php              # Middleware de verificação de sessão e permissões para API
+│   ├── login.php             # Endpoint REST POST de autenticação
+│   ├── racks.php             # CRUD RESTful para Racks
+│   ├── equipamentos.php      # CRUD RESTful para Equipamentos
+│   ├── tecnicos.php          # CRUD RESTful para Técnicos
+│   ├── manutencoes.php       # CRUD RESTful para Manutenções
+│   ├── ambientes.php         # Endpoints para Ambientes
+│   └── README.md             # Documentação dos endpoints REST
+│
 │   # --- Painel e gestão de racks ---
 ├── painel.php                # Resumo da infraestrutura + gerenciamento de usuários
 ├── processa_tipo.php         # Aplica as regras e altera o tipo de um usuário
@@ -209,10 +221,7 @@ aula7-login/
 └── cadastros.php             # Consulta das tabelas de apoio
 ```
 
-Os arquivos vêm em pares: uma **página** mostra o formulário, e um **processador**
-(`processa_*.php`) recebe o envio, mexe no banco e redireciona. Os processadores não
-imprimem HTML — eles terminam sempre com `header("Location: ...")` seguido de `exit()`,
-o que evita que o F5 reenvie o formulário.
+Os arquivos de página utilizam a estrutura tradicional de formulários web, enquanto a pasta `api/` disponibiliza endpoints RESTful modernos em JSON (GET, POST, PUT, DELETE) com tratamento de status HTTP e controle de acesso baseado em cargos.
 
 ---
 
